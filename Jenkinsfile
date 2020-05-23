@@ -1,17 +1,6 @@
 pipeline {
     agent none
-    tools {
-        gradle "gradle"
-    }
     stages {
-        stage('init') {
-               steps {
-                script{
-                  def dockerPath = tool 'docker'
-                  env.PATH = "${dockerPath}/bin:${env.PATH}"
-                }
-               }
-        }
         stage('Build') {
             agent {
                 docker {
